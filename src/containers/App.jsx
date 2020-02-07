@@ -1,11 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <p>The universe is a big place, perhaps the biggest.</p>
-    )
-  }
+import Home from './Home';
+import Services from './Services';
+import PatientCenter from './PatientCenter';
+import Providers from './Providers';
+import Contact from './Contact';
+
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
