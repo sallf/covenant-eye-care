@@ -1,0 +1,29 @@
+/* --------------------- ===
+  BASE/RESET
+--------------------------- */
+html {
+  font-size: $base-font-size; //Base for rem
+}
+body,
+p,
+a,
+button,
+h1,
+.h1,
+h2,
+.h2,
+.headline,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+  letter-spacing: $base-font-spacing;
+  color: map-get($text-colors, 'black');
+}

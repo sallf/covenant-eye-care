@@ -1,0 +1,42 @@
+/* --------------------- ===
+  COLORS
+--------------------------- */
+$brand-colors: (
+  'primary': #262626,
+  'highlight': #e1b039,
+  'black': #262626,
+  'light-gray': #d7cfc8,
+);
+
+$text-colors: (
+  'primary': map-get($brand-colors, 'primary'),
+);
+
+$translucent-colors: (
+  'black-1': rgba(0, 0, 0, .1),
+  'black-2': rgba(0, 0, 0, .2),
+  'black-5': rgba(0, 0, 0, .5),
+  'white-0': rgba(255, 255, 255, 0),
+  'white-1': rgba(255, 255, 255, .1),
+  'white-5': rgba(255, 255, 255, .5),
+  'white-8': rgba(255, 255, 255, .8),
+);
+
+/* --------------------- ===
+  TYPOGRAPHY
+--------------------------- */
+$font-family-sans-serif: zen-new, sans-serif;
+$font-weight-regular: 300; // zen-new light
+$font-weight-bold: 400; // zen-new regular
+
+$base-font-family: $font-family-sans-serif;
+$base-font-weight: $font-weight-regular;
+$base-font-spacing: 1px;
+$base-line-height: 1.6;
+$base-font-size: 18px;
+
+$text-xxl-rfs: 2.49rem;
+$text-xl-rfs: 2.07rem;
+$text-lg-rfs: 1.44rem;
+$text-md-rfs: 1rem;
+$text-sm-rfs: .833rem;
