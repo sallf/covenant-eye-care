@@ -2,28 +2,73 @@
   BASE/RESET
 --------------------------- */
 html {
-  font-size: $base-font-size; //Base for rem
+  font-size: 14px; //defined for rem usage
+  @include media-breakpoint-up (sm) {
+    font-size: 15px;
+  }
 }
-body,
+
 p,
-a,
-button,
 h1,
-.h1,
 h2,
-.h2,
-.headline,
 h3,
-.h3,
 h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  font-family: $base-font-family;
-  font-weight: $base-font-weight;
-  line-height: $base-line-height;
-  letter-spacing: $base-font-spacing;
-  color: map-get($text-colors, 'black');
+h5 {
+  line-height: 1.2;
+}
+
+// Text
+.text-xxxl {
+  font-size: $text-xxxl;
+}
+.text-xxl {
+  font-size: $text-xxl;
+}
+.text-xl {
+  font-size: $text-xl;
+}
+.text-lg {
+  font-size: $text-lg;
+}
+.text-md {
+  font-size: $text-md;
+}
+.text-sm {
+  font-size: $text-sm;
+}
+.text-bold {
+  font-weight: bold !important;
+}
+.text-normal {
+  font-weight: normal !important;
+}
+.page-heading {
+  font-size: $text-xxl;
+  font-weight: 400;
+}
+.section-heading {
+  font-size: $text-xl;
+  font-weight: bold;
+  margin: 2rem 0;
+  display: inline-block;
+  border-bottom: 3px solid $brand-primary;
+}
+.container-heading {
+  font-size: $text-lg;
+  font-weight: bold;
+}
+.footer-heading {
+  font-size: $text-md;
+  font-weight: bold;
+  margin-bottom: .6rem;
+  border-bottom: 2px solid $brand-primary;
+}
+.footer-sub-heading {
+  font-size: $text-sm;
+  font-weight: 400;
+  margin-bottom: .2rem;
+}
+.footer-links {
+  list-style: none;
+  padding-left: 10px;
 }
