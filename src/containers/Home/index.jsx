@@ -1,23 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './index.module.scss';
+import { Link } from 'react-router-dom';
+import styles from './index.scss';
+
+import Hero from './Hero';
+import Services from './Services';
+
+const subheroImg = require('$images/hp-subhero.jpg');
 
 function Home() {
-  console.log('S', styles);
   return (
-    <div className="hp-content-wrapper">
+    <div className={styles.wrapper}>
       <div className="container">
+        <Hero />
         <div className="row section">
           <div className="col-4 d-none d-md-block">
-            <img src="<?php echo IMG_DIR ?>/hp-subhero.jpg" alt="" />
+            <img src={subheroImg} alt="" />
           </div>
           <div className="col-12 col-md-8">
-            <div className="mission-wrapper">
+            <div className={styles.mission}>
               <div>
-                <h2 className="mission-header">
+                <h2 className={styles.missionHeader}>
                   <span className="intro-triangle">
                     <svg viewBox="0 0 25 36">
-                    <g><polygon points="0 0 25 18 0 36 0 0"/></g></svg>
+                      <g>
+                        <polygon points="0 0 25 18 0 36 0 0" />
+                      </g>
+                    </svg>
                   </span>
                   Attentive Eye Exams, Surgery and Optics
                 </h2>
@@ -27,43 +36,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="row section text-center">
-          <div className="col-12">
-            <h2 className="section-heading">Our Services</h2>
-          </div>
-          <div className="col-12 col-sm-6 col-lg-4">
-            <a href="services#anchorEyeExams" className="card-container">
-              <img src="<?php echo IMG_DIR ?>/services-eye-care.svg" className="card-img" alt="" />
-              <div className="card-text">
-                <h3 className="container-heading">Eye Exams</h3>
-                <p>We provide eye exams for all ages. A complete eye exam can provide early diagnosis and prevention of many different diseases of the eye.</p>
-                <p className="link-primary">Learn More</p>
-              </div>
-            </a>
-          </div>
-          <div className="col-12 col-sm-6 col-lg-4">
-            <a href="services#anchorSurgery" className="card-container">
-              <img src="<?php echo IMG_DIR ?>/services-surgery.svg" className="card-img" alt="" />
-              <div className="card-text">
-                <h3 className="container-heading">Surgery</h3>
-                <p>Our doctors perform many different eye surgeries including cataract surgery, laser vision correction (LASIK and PRK), and cosmetic lid and brow surgeries.</p>
-                <p className="link-primary">Learn More</p>
-              </div>
-            </a>
-          </div>
-          <div className="col-12 col-sm-6 col-lg-4">
-            <a href="services#anchorOptical" className="card-container">
-              <img src="<?php echo IMG_DIR ?>/services-optical.svg" className="card-img" alt="" />
-              <div className="card-text">
-                <h3 className="container-heading">Optical Shop</h3>
-                <p>Our Optical Shop has a wide selection of both designer and budget frames, sunglasses, and contact lenses. Let our knowledgeable staff help you choose the perfect pair!</p>
-                <p className="link-primary">Learn More</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
+      <Services />
       <div className="hp-contact-wrapper section">
         <div className="container">
           <div className="row">
