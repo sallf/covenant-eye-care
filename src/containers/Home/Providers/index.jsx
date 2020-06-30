@@ -1,17 +1,10 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMountEffect } from '$common/hooks';
-import { buildClient } from '$common/contentful';
+import { buildClient, renderLongTextParagraphs } from '$common/contentful';
 
 const client = buildClient();
-
-client
-  .getEntries({
-    content_type: 'doctorDescriptions',
-  })
-  .then((entry) => console.log(entry))
-  .catch((err) => console.log(err));
 
 const Providers = () => {
   // --------------------- ===
@@ -54,7 +47,7 @@ const Providers = () => {
                   <p>{doctor.fields.title}</p>
                 </div>
                 <div className="col-12 col-sm-7 align-self-center mb-5">
-                  <p className="text-lg">{doctor.fields.description}</p>
+                  {renderLongTextParagraphs(doctor.fields.description, 'text-lg')}
                   <Link to={`/providers#${doctor.fields.linkId}`}>
                     Learn More
                   </Link>
