@@ -11,11 +11,6 @@
     display: inline-block;
   }
 }
-.hp-contact-wrapper {
-  //  background: url('../img/cec-contact-bg.jpg');
-  background-size: cover;
-  background-position: center;
-}
 .contact-container {
   background: rgba(255,255,255,.8);
   padding: 15px;
@@ -37,66 +32,7 @@
 }
 
 //Contact info
-.contact-wrapper {
-  padding: 15px 0;
-  .tab-container {
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    margin-bottom: 0;
-    padding: 0;
-    display: block;
-    position: relative;
-  }
-  .tab {
-    background: $contact-background;
-    position: relative;
-    bottom: 0;
-    float: left;
-    width: 50%;
-    padding: 5px 0;
-    list-style: none;
-    border-bottom: 3px solid $contact-background;
-    &:hover {
-      color: $brand-primary;
-      svg {
-        fill: $brand-primary;
-      }
-    }
-    &.is-selected {
-      color: $brand-primary;
-      border-bottom: 3px solid $brand-primary;
-      svg {
-        fill: $brand-primary;
-      }
-    }
-    svg {
-      height: 40px;
-      fill: $brand-black;
-      display: block;
-      margin: 0 auto;
-    }
-  }
-  .info-container {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-  }
-  .info {
-    background: $contact-background;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    transition: all .5s ease;
-    transform: translate(0,-100%);
-    padding: 15px;
-    &.is-active {
-      display: block;
-      position: relative;
-      transform: translate(0);
-    }
-  }
-}
+
 .providers-img {
   border: 3px solid $brand-primary;
   border-radius: 50%;
