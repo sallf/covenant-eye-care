@@ -6,6 +6,7 @@ import styles from './index.scss';
 import Hero from './Hero';
 import Services from './Services';
 import Contact from './Contact';
+import Providers from './Providers';
 
 const subheroImg = require('$images/hp-subhero.jpg');
 
@@ -39,43 +40,9 @@ function Home() {
       </div>
       <Services />
       <Contact />
+      <Providers />
       <div className="container">
-        <div className="row section">
-          <div className="col-12 text-center">
-            <h2 className="section-heading">Our Providers</h2>
-          </div>
-          <div className="col-12 col-sm-4 text-center mb-4">
-            <img src="<?php echo IMG_DIR ?>/providers-bryan_allf-md.jpg" className="providers-img" alt="" />
-            <p className="container-heading mb-0 mt-2">Dr. Bryan Allf, MD</p>
-            <p>Ophthalmologist</p>
-          </div>
-          <div className="col-12 col-sm-7 align-self-center mb-5">
-            <a href="providers#drAllf">Learn More</a>
-          </div>
-          <div className="col-12 col-sm-4 text-center mb-4">
-            <img src="<?php echo IMG_DIR ?>/providers-richard_akers-md.jpg" className="providers-img" alt="" />
-            <p className="container-heading mb-0 mt-2">Dr. Richard Akers, MD</p>
-            <p>Ophthalmologist</p>
-          </div>
-          <div className="col-12 col-sm-7 align-self-center mb-5">
-            <a href="providers#drAkers">Learn More</a>
-          </div>
-          <div className="col-12 col-sm-4 text-center mb-4">
-            <img src="<?php echo IMG_DIR ?>/providers-farnham.jpg" className="providers-img" alt="" />
-            <p className="container-heading mb-0 mt-2">Dr. Farnham</p>
-            <p>Optometrist</p>
-          </div>
-          <div className="col-12 col-sm-7 align-self-center mb-5">
-            <a href="providers#drFarnham">Learn More</a>
-          </div>
-          <div className="col-12 col-sm-4 text-center mb-4">
-            <img src="<?php echo IMG_DIR ?>/providers-canizales.jpg" className="providers-img" alt="" />
-            <p className="container-heading mb-0 mt-2">Dr. Canizales</p>
-            <p>Optometrist</p>
-          </div>
-          <div className="col-12 col-sm-7 align-self-center mb-5">
-            <a href="providers#drCanizales">Learn More</a>
-          </div>
+        <div className="row">
           <div className="col-12 text-center mb-4">
             <h2 className="section-heading">Reviews</h2>
             <div className="embed-responsive">

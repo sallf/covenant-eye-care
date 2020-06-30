@@ -1,0 +1,79 @@
+import React, { useState, useRef, useLayoutEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+import { useMountEffect } from '$common/hooks';
+import { buildClient } from '$common/contentful';
+
+const client = buildClient();
+
+client
+  .getEntries({
+    content_type: 'doctorDescriptions',
+  })
+  .then((entry) => console.log(entry))
+  .catch((err) => console.log(err));
+
+const Providers = () => {
+  // --------------------- ===
+  //  STATE
+  // ---------------------
+  const [doctors, setDoctors] = useState(null);
+
+  // --------------------- ===
+  //  EFFECTS
+  // ---------------------
+  useMountEffect(() => {
+    client
+      .getEntries({
+        content_type: 'doctorDescriptions',
+      })
+      .then((entry) => {
+        // Note contentful sets order by last edited
+        // I added an "order" field but am not using it yet
+        setDoctors(entry.items);
+      })
+      .catch((err) => console.log(err));
+  });
+
+  // --------------------- ===
+  //  RENDER
+  // ---------------------
+  return (
+    <div className="container">
+      <div className="row section">
+        <div className="col-12 text-center">
+          <h2 className="section-heading">Our Providers</h2>
+        </div>
+        {
+          doctors ? (
+            doctors.map((doctor) => (
+              <>
+                <div className="col-12 col-sm-4 text-center mb-4">
+                  <img src={doctor.fields.headshot.fields.file.url} className="providers-img" alt="" />
+                  <p className="container-heading mb-0 mt-2">{doctor.fields.name}</p>
+                  <p>{doctor.fields.title}</p>
+                </div>
+                <div className="col-12 col-sm-7 align-self-center mb-5">
+                  <p className="text-lg">{doctor.fields.description}</p>
+                  <Link to={`/providers#${doctor.fields.linkId}`}>
+                    Learn More
+                  </Link>
+                </div>
+              </>
+            ))
+          ) : 'Loading...'
+        }
+      </div>
+    </div>
+  );
+};
+
+Providers.defaultProps = {
+
+};
+
+Providers.propTypes = {
+
+};
+
+export default Providers;
