@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import Header from '$components/Header';
+import Footer from '$components/Footer';
 
 import Home from './Home';
 import Services from './Services';
@@ -37,6 +38,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 }

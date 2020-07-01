@@ -29,9 +29,9 @@ function Home() {
                       </g>
                     </svg>
                   </span>
-                  Attentive Eye Exams, Surgery and Optics
+                  Why choose Covenant Eye Care?
                 </h2>
-                <p className="text-lg">We have been caring for our patients’ eyes for over 50 years. As a smaller practice, we are able to provide the highest quality eye care in a setting that is friendly and personal.</p>
+                <p className="text-lg">Vision problems aren&#39;t the only reason to visit an eye doctor. Did you know that many serious health problems can first be detected only in the eyes? Diabetes, high blood pressure, even stroke can be discovered during a thorough eye exam. At Covenant Eye Care, our five highly trained doctors provide personalized care and have made a promise – a covenant – to do everything possible to preserve your eyesight for the whole of your life. Because we take our time and because we care deeply about our patients, we&#39;ve developed lifelong friendships with them and their families. At Covenant Eye Care, you&#39;re a name, not a number.</p>
               </div>
             </div>
           </div>

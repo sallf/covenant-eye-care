@@ -35,6 +35,8 @@ const Hero = (props) => {
           <a
             className="cta"
             href="https://secure.yourlens.com/?DID=38673"
+            target="_blank"
+            rel="noreferrer noopener"
           >
             Order Now
           </a>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const contentful = require('contentful');
 
@@ -17,6 +17,28 @@ export const renderLongTextParagraphs = (text, className = '') => (
     && <p key={i} className={className}>{item}</p>
   ))
 );
+
+export const renderLongTextBreaks = (text) => (
+  text.split('\n').map((item, i) => (
+    item
+    && (
+      <Fragment key={i}>
+        {item}
+        {
+          text.split('\n').length > (i + 1)
+          && <br />
+        }
+      </Fragment>
+    )
+  ))
+);
+
+export const renderPhoneNumber = (number) => {
+  const match = number.toString().match(/^(\d{3})(\d{3})(\d{4})$/);
+  return (
+    `(${match[1]}) ${match[2]}-${match[3]}`
+  );
+};
 
 const allFuncs = {
   buildClient,
