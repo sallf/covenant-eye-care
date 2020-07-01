@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
@@ -8,8 +9,7 @@ import PageTitle from '$components/PageTitle';
 import { useMountEffect } from '$common/hooks';
 import {
   buildClient,
-  renderPhoneNumber,
-  renderLongTextBreaks,
+  sortByOrder,
 } from '$common/contentful';
 
 const client = buildClient();
@@ -73,8 +73,7 @@ const Services = () => {
         content_type: 'servicesPage',
       })
       .then((entry) => {
-        // Note contentful sets order by last edited
-        // I added an "order" field but am not using it yet
+        entry.items.sort(sortByOrder);
         setPageContent(entry.items);
       })
       .catch((err) => console.log(err));
@@ -98,6 +97,12 @@ const Services = () => {
                   {
                     documentToReactComponents(content.fields.content, options)
                   }
+                  <Link
+                    className="cta"
+                    to="/contact"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               ))
             )

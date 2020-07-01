@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMountEffect } from '$common/hooks';
-import { buildClient, renderLongTextParagraphs } from '$common/contentful';
+import { buildClient, renderLongTextParagraphs, sortByOrder } from '$common/contentful';
 
 const client = buildClient();
 
@@ -21,8 +21,7 @@ const Providers = () => {
         content_type: 'doctorDescriptions',
       })
       .then((entry) => {
-        // Note contentful sets order by last edited
-        // I added an "order" field but am not using it yet
+        entry.items.sort(sortByOrder);
         setDoctors(entry.items);
       })
       .catch((err) => console.log(err));

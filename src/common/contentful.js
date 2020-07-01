@@ -40,6 +40,10 @@ export const renderPhoneNumber = (number) => {
   );
 };
 
+export const sortByOrder = (a, b) => {
+  return a.fields.order - b.fields.order;
+};
+
 const allFuncs = {
   buildClient,
 };
