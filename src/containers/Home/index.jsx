@@ -9,7 +9,7 @@ import Reviews from './Reviews';
 
 const subheroImg = require('$images/hp-subhero.jpg');
 
-function Home() {
+const Home = () => {
   return (
     <div className={styles.wrapper}>
       <div className="container">
@@ -43,7 +43,7 @@ function Home() {
       <Reviews />
     </div>
   );
-}
+};
 
 Home.defaultProps = {
 

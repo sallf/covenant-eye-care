@@ -41,7 +41,6 @@ const Header = (props) => {
     client
       .getEntry('uAABoC5cMvrKd55HLb4LC')
       .then((entry) => {
-        console.log('ent', entry.fields);
         setAlert(entry.fields);
       })
       .catch((err) => console.log(err));

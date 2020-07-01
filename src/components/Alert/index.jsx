@@ -5,7 +5,7 @@ class Alert extends Component {
   render() {
     const { type, children } = this.props;
     return (
-      <div className={`alert alert-${type}`} role="alert">
+      <div className={`alert alert-${type} mb-0`} role="alert">
         { children }
       </div>
     );
