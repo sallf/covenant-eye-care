@@ -11,7 +11,7 @@ import Footer from '$components/Footer';
 import Home from './Home';
 import Services from './Services';
 import PatientCenter from './PatientCenter';
-import Providers from './Providers';
+import ProvidersScreen from './ProvidersScreen';
 import Contact from './Contact';
 
 
@@ -28,7 +28,7 @@ function App() {
             <PatientCenter />
           </Route>
           <Route path="/providers">
-            <Providers />
+            <ProvidersScreen />
           </Route>
           <Route path="/contact">
             <Contact />
