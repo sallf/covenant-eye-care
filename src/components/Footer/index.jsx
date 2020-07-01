@@ -24,10 +24,6 @@ const Footer = (props) => {
   const [companyData, setCompanyData] = useState(null);
 
   // --------------------- ===
-  //  FUNCTIONS
-  // ---------------------
-
-  // --------------------- ===
   //  EFFECTS
   // ---------------------
   useMountEffect(() => {
