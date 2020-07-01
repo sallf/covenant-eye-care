@@ -15,7 +15,7 @@ const Hero = (props) => {
         <div className="col-12 p-0">
           <div className={styles.wrapper}>
             <div className={styles.content}>
-              <Link href="/contact" className={styles.link}>
+              <Link to="/contact" className={styles.link}>
                 <p className={styles.text}>Your Eyes Show You The World</p>
                 <p className="text-primary">
                   They show us your health.

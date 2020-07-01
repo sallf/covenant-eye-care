@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import styles from './index.scss';
 
 import Hero from './Hero';
 import Services from './Services';
 import Contact from './Contact';
 import Providers from './Providers';
+import Reviews from './Reviews';
 
 const subheroImg = require('$images/hp-subhero.jpg');
 
@@ -41,21 +40,7 @@ function Home() {
       <Services />
       <Contact />
       <Providers />
-      <div className="container">
-        <div className="row">
-          <div className="col-12 text-center mb-4">
-            <h2 className="section-heading">Reviews</h2>
-            <div className="embed-responsive">
-              <iframe src="https://reviews.solutionreach.com/vs/reviews/covenant_eye_care_gastonia?limit=10" frameBorder="0" scrolling="no" className="embed-responsive-item" />
-              <div className="reviews-btn-wrapper">
-                <a className="cta" href="https://reviews.solutionreach.com/vs/covenant_eye_care_gastonia" target="_blank">
-                  See More
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Reviews />
     </div>
   );
 }

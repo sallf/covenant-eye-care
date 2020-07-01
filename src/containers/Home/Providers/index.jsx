@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMountEffect } from '$common/hooks';
@@ -40,7 +40,7 @@ const Providers = () => {
         {
           doctors ? (
             doctors.map((doctor) => (
-              <>
+              <Fragment key={doctor.fields.name}>
                 <div className="col-12 col-sm-4 text-center mb-4">
                   <img src={doctor.fields.headshot.fields.file.url} className="providers-img" alt="" />
                   <p className="container-heading mb-0 mt-2">{doctor.fields.name}</p>
@@ -52,7 +52,7 @@ const Providers = () => {
                     Learn More
                   </Link>
                 </div>
-              </>
+              </Fragment>
             ))
           ) : 'Loading...'
         }

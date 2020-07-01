@@ -35,9 +35,12 @@ const Services = () => {
         </div>
         {
           servicesData.map((service) => (
-            <div className="col-12 col-sm-6 col-lg-4">
+            <div
+              key={service.title}
+              className="col-12 col-sm-6 col-lg-4"
+            >
               <Link
-                href={service.link}
+                to={service.link}
                 className="card-container"
               >
                 <img
