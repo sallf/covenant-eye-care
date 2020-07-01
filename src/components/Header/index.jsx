@@ -145,7 +145,9 @@ const Header = (props) => {
         </div>
       </div>
       {
-        alert && (
+        alert
+        && alert.message
+        && (
           <Alert type={alert.type}>
             {
               documentToReactComponents(alert.message, options)
