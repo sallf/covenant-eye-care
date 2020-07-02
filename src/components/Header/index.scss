@@ -23,8 +23,19 @@ $mobile-break-point: 'lg';
 
 .navbarInner {
   position: relative;
-  display: flex;
-  justify-content: flex-end;
+  display: block;
+  flex-basis: 100%;
+  margin-top: 1rem;
+
+  &__notActive {
+    display: none;
+  }
+
+  @include media-breakpoint-up ($mobile-break-point) {
+    display: flex;
+    flex-basis: unset;
+    justify-content: flex-end;
+  }
 }
 
 .hamburger {
@@ -35,6 +46,10 @@ $mobile-break-point: 'lg';
   border-color: map-get($translucent-colors, 'black-1');
   @include media-breakpoint-up ($mobile-break-point) {
     display: none;
+  }
+
+  &__active {
+    background-color: #eceeef;
   }
 }
 
@@ -48,6 +63,7 @@ $mobile-break-point: 'lg';
 
 .navItem {
   display: block;
+  flex-basis: 100%;
   padding: 5px 20px;
   color: map-get($text-colors, 'black');
   font-size: 1.1rem;
@@ -55,11 +71,11 @@ $mobile-break-point: 'lg';
   text-align: center;
   text-transform: uppercase;
   letter-spacing: .02em;
-  border-bottom: 1px solid map-get($translucent-colors, 'black-4');
+  border-bottom: 1px solid map-get($translucent-colors, 'black-1');
 
   &:hover {
     color: map-get($text-colors, 'black');
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   &:last-of-type {
@@ -67,8 +83,21 @@ $mobile-break-point: 'lg';
   }
 
   @include media-breakpoint-up ($mobile-break-point) {
+    flex-basis: unset;
     padding: 20px;
     border-bottom: 0;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__current {
+    text-decoration: underline;
+
+    @include media-breakpoint-up ($mobile-break-point) {
+      text-decoration: none;
+    }
   }
 }
 

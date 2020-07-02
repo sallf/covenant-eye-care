@@ -31,7 +31,7 @@ const options = {
   },
 };
 
-const activeClassName = 'is-active';
+const activeClassName = styles.navItem__current;
 const fontCookieName = 'cecFontSize=';
 
 const Header = () => {
@@ -39,6 +39,7 @@ const Header = () => {
   //  STATE
   // ---------------------
   const [alert, setAlert] = useState(null);
+  const [navActive, setNavActive] = useState(false);
   const [selectPosition, setSelectPosition] = useState({
     // likely start positions
     left: 15,
@@ -199,9 +200,10 @@ const Header = () => {
               <span className="sr-only">Go home</span>
             </NavLink>
             <button
-              className={styles.hamburger}
+              className={`${styles.hamburger} ${navActive ? styles.hamburger__active : ''}`}
               aria-controls="mainNav"
               aria-expanded="false"
+              onClick={() => setNavActive((prevState) => !prevState)}
             >
               <span className="sr-only">Toggle navigation</span>
               <span className={styles.hamburgerBar} />
@@ -209,8 +211,9 @@ const Header = () => {
               <span className={styles.hamburgerBar} />
             </button>
             <div
-              className={styles.navbarInner}
+              className={`${styles.navbarInner} ${!navActive ? styles.navbarInner__notActive : ''}`}
               ref={navRef}
+              id="mainNav"
             >
               <NavLink
                 to="/"
