@@ -3,6 +3,7 @@ import React, {
   useLayoutEffect,
   useRef,
   useCallback,
+  useEffect,
 } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -31,6 +32,7 @@ const options = {
 };
 
 const activeClassName = 'is-active';
+const fontCookieName = 'cecFontSize=';
 
 const Header = () => {
   // --------------------- ===
@@ -43,6 +45,7 @@ const Header = () => {
     width: 60,
     top: 46,
   });
+  const [fontSize, setFontSize] = useState(15);
 
   // --------------------- ===
   //  REFS
@@ -80,6 +83,31 @@ const Header = () => {
     });
   }, [setPos]);
 
+  // Font size
+  const handleFontSize = (int) => {
+    let size = fontSize;
+
+    switch (int) {
+      case -1:
+        if (size > 13) {
+          size -= 2;
+        }
+        break;
+      case 0:
+        size = 15;
+        break;
+      case 1:
+        if (size < 21) {
+          size += 2;
+        }
+        break;
+      default:
+        // no default
+    }
+
+    setFontSize(size);
+  };
+
   // --------------------- ===
   //  EFFECTS
   // ---------------------
@@ -100,9 +128,21 @@ const Header = () => {
     );
   });
 
+  useMountEffect(() => {
+    const storedSize = localStorage.getItem(fontCookieName);
+    if (storedSize) {
+      setFontSize(storedSize);
+    }
+  });
+
   useLayoutEffect(() => {
     handleMouseOut();
   }, [handleMouseOut, location]);
+
+  useEffect(() => {
+    document.getElementById('html').style.fontSize = `${fontSize}px`;
+    localStorage.setItem(fontCookieName, fontSize);
+  }, [fontSize]);
 
   // --------------------- ===
   //  RENDER
@@ -115,27 +155,27 @@ const Header = () => {
             <div className="col-12 text-center">
               <div className="text-right">
                 Font Size:
-                <span
+                <button
                   className={`${styles.fontButton} ${styles.fontButton__dec}`}
-                  role="button"
                   title="Decrease Font Size"
+                  onClick={() => handleFontSize(-1)}
                 >
                   A
-                </span>
-                <span
+                </button>
+                <button
                   className={`${styles.fontButton} ${styles.fontButton__current}`}
-                  role="button"
                   title="Reset Font Size"
+                  onClick={() => handleFontSize(0)}
                 >
                   A
-                </span>
-                <span
+                </button>
+                <button
                   className={`${styles.fontButton} ${styles.fontButton__inc}`}
-                  role="button"
                   title="Increase Font Size"
+                  onClick={() => handleFontSize(1)}
                 >
                   A
-                </span>
+                </button>
               </div>
             </div>
           </div>

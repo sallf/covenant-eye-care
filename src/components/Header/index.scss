@@ -57,6 +57,11 @@ $mobile-break-point: 'md';
   letter-spacing: .02em;
   border-bottom: 1px solid map-get($translucent-colors, 'black-4');
 
+  &:hover {
+    color: map-get($text-colors, 'black');
+    text-decoration: none;
+  }
+
   &:last-of-type {
     border-bottom: 0;
   }
