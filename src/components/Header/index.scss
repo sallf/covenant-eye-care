@@ -1,6 +1,6 @@
 @import '$scss/local';
 
-$mobile-break-point: 'md';
+$mobile-break-point: 'lg';
 
 .wrapper {
   padding: 0;
@@ -87,10 +87,11 @@ $mobile-break-point: 'md';
 }
 
 .fontButton {
-  padding: 0 2px;
+  padding: 0 4px;
   margin: 0;
   color: $brand-black;
   font-size: 18px;
+  border: 0;
   cursor: pointer;
 
   &__dec {

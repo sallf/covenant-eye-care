@@ -87,6 +87,8 @@ const Header = () => {
   const handleFontSize = (int) => {
     let size = fontSize;
 
+    size = parseInt(fontSize, 10);
+
     switch (int) {
       case -1:
         if (size > 13) {
@@ -131,7 +133,7 @@ const Header = () => {
   useMountEffect(() => {
     const storedSize = localStorage.getItem(fontCookieName);
     if (storedSize) {
-      setFontSize(storedSize);
+      setFontSize(parseInt(storedSize, 10));
     }
   });
 
@@ -142,11 +144,14 @@ const Header = () => {
   useEffect(() => {
     document.getElementById('html').style.fontSize = `${fontSize}px`;
     localStorage.setItem(fontCookieName, fontSize);
-  }, [fontSize]);
+    // Reset underline
+    handleMouseOut();
+  }, [fontSize, handleMouseOut]);
 
   // --------------------- ===
   //  RENDER
   // ---------------------
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -156,21 +161,21 @@ const Header = () => {
               <div className="text-right">
                 Font Size:
                 <button
-                  className={`${styles.fontButton} ${styles.fontButton__dec}`}
+                  className={`${styles.fontButton} ${styles.fontButton__dec} ${fontSize < 15 ? styles.fontButton__current : ''}`}
                   title="Decrease Font Size"
                   onClick={() => handleFontSize(-1)}
                 >
                   A
                 </button>
                 <button
-                  className={`${styles.fontButton} ${styles.fontButton__current}`}
+                  className={`${styles.fontButton} ${fontSize === 15 ? styles.fontButton__current : ''}`}
                   title="Reset Font Size"
                   onClick={() => handleFontSize(0)}
                 >
                   A
                 </button>
                 <button
-                  className={`${styles.fontButton} ${styles.fontButton__inc}`}
+                  className={`${styles.fontButton} ${styles.fontButton__inc} ${fontSize > 15 ? styles.fontButton__current : ''}`}
                   title="Increase Font Size"
                   onClick={() => handleFontSize(1)}
                 >
