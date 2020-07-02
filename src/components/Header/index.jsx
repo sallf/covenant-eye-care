@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import React, {
+  useState,
+  useLayoutEffect,
+  useRef,
+  useCallback,
+} from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 
@@ -12,8 +16,6 @@ import { useMountEffect } from '$common/hooks';
 
 import {
   buildClient,
-  renderPhoneNumber,
-  renderLongTextBreaks,
 } from '$common/contentful';
 
 const client = buildClient();
@@ -28,11 +30,55 @@ const options = {
   },
 };
 
-const Header = (props) => {
+const activeClassName = 'is-active';
+
+const Header = () => {
   // --------------------- ===
   //  STATE
   // ---------------------
   const [alert, setAlert] = useState(null);
+  const [selectPosition, setSelectPosition] = useState({
+    // likely start positions
+    left: 15,
+    width: 60,
+    top: 46,
+  });
+
+  // --------------------- ===
+  //  REFS
+  // ---------------------
+  const navRef = useRef(null);
+  const location = useLocation();
+
+  // --------------------- ===
+  //  HANDLERS
+  // ---------------------
+  const setPos = useCallback((targ) => {
+    const {
+      width,
+      height,
+    } = targ.getBoundingClientRect();
+    setSelectPosition({
+      left: Math.round(targ.offsetLeft + 15), // Relative to parent. Offset half width
+      width: Math.round(width - 30),
+      top: Math.round(height - 18),
+    });
+  }, []);
+
+  const handleMouseIn = useCallback((evt) => {
+    setPos(evt.target);
+  }, [setPos]);
+
+  const handleMouseOut = useCallback(() => {
+    const { children } = navRef.current;
+    const arr = Array.from(children);
+
+    arr.forEach((nav) => {
+      if (nav.classList.contains(activeClassName)) {
+        setPos(nav);
+      }
+    });
+  }, [setPos]);
 
   // --------------------- ===
   //  EFFECTS
@@ -46,9 +92,17 @@ const Header = (props) => {
       .catch((err) => console.log(err));
   });
 
-  // --------------------- ===
-  //  HANDLERS
-  // ---------------------
+  useMountEffect(() => {
+    window.addEventListener('resize', handleMouseOut);
+
+    return () => (
+      window.removeEventListener('resize', handleMouseOut)
+    );
+  });
+
+  useLayoutEffect(() => {
+    handleMouseOut();
+  }, [handleMouseOut, location]);
 
   // --------------------- ===
   //  RENDER
@@ -85,7 +139,9 @@ const Header = (props) => {
               </div>
             </div>
           </div>
-          <nav className={styles.navbar}>
+          <nav
+            className={styles.navbar}
+          >
             <NavLink
               to="/"
             >
@@ -107,38 +163,64 @@ const Header = (props) => {
               <span className={styles.hamburgerBar} />
               <span className={styles.hamburgerBar} />
             </button>
-            <div className={styles.navbarInner}>
+            <div
+              className={styles.navbarInner}
+              ref={navRef}
+            >
               <NavLink
                 to="/"
+                exact
                 className={styles.navItem}
+                activeClassName={activeClassName}
+                onMouseEnter={handleMouseIn}
+                onMouseLeave={handleMouseOut}
               >
                 Home
               </NavLink>
               <NavLink
                 to="/services"
                 className={styles.navItem}
+                activeClassName={activeClassName}
+                onMouseEnter={handleMouseIn}
+                onMouseLeave={handleMouseOut}
               >
                 Services
               </NavLink>
               <NavLink
                 to="/patient-center"
                 className={styles.navItem}
+                activeClassName={activeClassName}
+                onMouseEnter={handleMouseIn}
+                onMouseLeave={handleMouseOut}
               >
                 Patient Center
               </NavLink>
               <NavLink
                 to="/providers"
                 className={styles.navItem}
+                activeClassName={activeClassName}
+                onMouseEnter={handleMouseIn}
+                onMouseLeave={handleMouseOut}
               >
                 Providers
               </NavLink>
               <NavLink
                 to="/contact"
                 className={styles.navItem}
+                activeClassName={activeClassName}
+                onMouseEnter={handleMouseIn}
+                onMouseLeave={handleMouseOut}
               >
                 Contact
               </NavLink>
-              <span className={styles.selectBar} />
+              <span
+                className={styles.selectBar}
+                style={{
+                  left: selectPosition.left,
+                  width: selectPosition.width,
+                  top: selectPosition.top,
+                }}
+              />
             </div>
           </nav>
         </div>
