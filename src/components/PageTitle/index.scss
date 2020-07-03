@@ -1,0 +1,14 @@
+@import '$scss/local';
+
+.wrapper {
+  padding: 20px;
+  color: $brand-black;
+  background: $brand-primary-25;
+}
+
+.triangle {
+  svg {
+    width: 38px;
+    fill: $brand-primary-25;
+  }
+}

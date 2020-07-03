@@ -1,0 +1,28 @@
+/* --------------------- ===
+  IMPORTS
+--------------------------- */
+@import '$scss/local';
+
+/* --------------------- ===
+  STYLES
+--------------------------- */
+.wrapper {
+  background: $white;
+  padding-top: 30px;
+}
+
+.mission {
+  background: $brand-primary-25;
+  border-top: 5px solid $brand-primary-50;
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.missionHeader {
+  display: inline-block;
+  font-size: $text-xl;
+  text-transform: uppercase;
+  font-weight: bold;
+}

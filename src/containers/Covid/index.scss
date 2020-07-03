@@ -1,0 +1,75 @@
+@import '$scss/local';
+
+$covid-yellow: #FADF2A;
+$covid-blue: #1A4895;
+$covid-pink: #F7B0BE;
+
+.headline {
+  color: #1B3C65;
+  text-transform: uppercase;
+}
+
+.box {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  &__blue {
+    background: #7ACDF1;
+  }
+
+  &__gray {
+    background: #BAC4D0;
+  }
+}
+
+@include media-breakpoint-up (md) {
+  .box2 {
+    order: -1;
+  }
+}
+
+// --------------------- ===
+//  PROMISE BOXES
+// ---------------------
+.promiseCount {
+  font-size: 4rem;
+  border-bottom: 3px solid $covid-yellow;
+}
+
+.promiseBox {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  &__blue {
+    background: $covid-blue;
+    color: $covid-yellow;
+
+    .promiseCount {
+      border-bottom-color: $covid-yellow;
+    }
+  }
+
+  &__yellow {
+    background: $covid-yellow;
+    color: $covid-blue;
+
+    .promiseCount {
+      border-bottom-color: $covid-blue;
+    }
+  }
+
+  &__pink {
+    background: $covid-pink;
+    color: $covid-blue;
+
+    .promiseCount {
+      border-bottom-color: $covid-blue;
+    }
+  }
+}
