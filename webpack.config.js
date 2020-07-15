@@ -37,12 +37,14 @@ module.exports = (env, argv) => {
 
   const cleanWebpackPlugin = new CleanWebpackPlugin();
 
-  const copyWebpackPlugin = new CopyWebpackPlugin([
-    {
-      from: 'assets/pdfs',
-      to: 'assets/pdfs',
-    },
-  ]);
+  const copyWebpackPlugin = new CopyWebpackPlugin({
+    patterns: [
+      {
+        from: 'assets/pdfs',
+        to: 'assets/pdfs',
+      },
+    ],
+  });
 
   // Sitemap
   const paths = [
