@@ -4,7 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // simplifies HTML files for webpack (really connects to the index.ejs file)
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // remove/clean your build folder(s)
-// const CopyWebpackPlugin = require('copy-webpack-plugin'); // Copies assets which aren't required (like pdfs)
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Copies assets which aren't required (like pdfs)
 const SitemapPlugin = require('sitemap-webpack-plugin').default; // Build a sitemap
 
 const resolveConfig = require('./webpack.config.resolve');
@@ -37,6 +37,13 @@ module.exports = (env, argv) => {
 
   const cleanWebpackPlugin = new CleanWebpackPlugin();
 
+  const copyWebpackPlugin = new CopyWebpackPlugin([
+    {
+      from: 'assets/pdfs',
+      to: 'assets/pdfs',
+    },
+  ]);
+
   // Sitemap
   const paths = [
     '/',
@@ -52,6 +59,7 @@ module.exports = (env, argv) => {
 
     miniCssExtractPlugin,
     htmlWebpackPlugin,
+    copyWebpackPlugin,
   ];
 
   if (isProd) {
