@@ -1,5 +1,4 @@
 version: 2.1
-
 orbs:
   aws-s3: circleci/aws-s3@1.0.15
 
@@ -55,9 +54,6 @@ jobs:
             node --version
             npm --version
       - checkout # special step to check out source code to working directory
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-v2-{{ checksum "package.json" }}
@@ -80,3 +76,7 @@ jobs:
           from: public
           to: 's3://covenanteyecare.com'
           overwrite: true
+      - run:
+          name: 'Invalidate CloudFront Cache'
+          command: |
+            aws cloudfront create-invalidation --distribution-id E2810ND8CZOFVC --paths "/*"
