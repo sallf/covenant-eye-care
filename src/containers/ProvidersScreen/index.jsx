@@ -50,7 +50,10 @@ const ProvidersScreen = () => {
             doctors ? (
               doctors.map((doctor) => (
                 <Fragment key={doctor.fields.name}>
-                  <div className="col-12 col-sm-4 text-center mb-4">
+                  <div
+                    className="col-12 col-sm-4 text-center mb-4"
+                    id={doctor.fields.linkId}
+                  >
                     <img src={doctor.fields.headshot.fields.file.url} className="providers-img" alt="" />
                     <p className="container-heading mb-0 mt-2">{doctor.fields.name}</p>
                     <p>{doctor.fields.title}</p>
