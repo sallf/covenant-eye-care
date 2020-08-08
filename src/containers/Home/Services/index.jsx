@@ -19,7 +19,7 @@ const servicesData = [
     img: surgeryImg,
   },
   {
-    title: 'Optical Shop',
+    title: 'Eyewear Center',
     copy: 'Our Optical Shop has a wide selection of both designer and budget frames, sunglasses, and contact lenses. Let our knowledgeable staff help you choose the perfect pair!',
     link: 'services#anchorOptical',
     img: opticalImg,
