@@ -46,21 +46,14 @@ const ProvidersScreen = () => {
               Covenant Eye Care doctors and staff have been caring for our patients’ eyes for over 50 years. Whether you need eyeglasses, surgery or management of a medical condition, we are here to help!
             </p>
           </div>
-          <div className="col-12 mt-5">
-            <h2
-              className="section-heading mt-0"
-            >
-              What is an Ophthalmologist?
-            </h2>
-            <p className="text-lg">
-              An ophthalmologist – Eye M.D. – is a medical or osteopathic doctor who specializes in eye and vision care. Ophthalmologists are specially trained to provide the full spectrum of eye care, from prescribing glasses and contact lenses to complex and delicate eye surgery.
-            </p>
-          </div>
           {
             doctors ? (
               doctors.map((doctor) => (
                 <Fragment key={doctor.fields.name}>
-                  <div className="col-12 col-sm-4 text-center mb-4">
+                  <div
+                    className="col-12 col-sm-4 text-center mb-4"
+                    id={doctor.fields.linkId}
+                  >
                     <img src={doctor.fields.headshot.fields.file.url} className="providers-img" alt="" />
                     <p className="container-heading mb-0 mt-2">{doctor.fields.name}</p>
                     <p>{doctor.fields.title}</p>
