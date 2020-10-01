@@ -43,6 +43,10 @@ module.exports = (env, argv) => {
         from: 'assets/pdfs',
         to: 'assets/pdfs',
       },
+      {
+        from: 'assets/favicon',
+        to: 'assets/favicon',
+      },
     ],
   });
 
