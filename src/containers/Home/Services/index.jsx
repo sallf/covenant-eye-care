@@ -9,19 +9,19 @@ const servicesData = [
   {
     title: 'Eye Exams',
     copy: 'We provide eye exams for all ages. A complete eye exam can provide early diagnosis and prevention of many different diseases of the eye.',
-    link: 'services#anchorEyeExams',
+    link: 'services#eyeExams',
     img: eyeCareImg,
   },
   {
     title: 'Surgery',
     copy: 'Our doctors perform many different eye surgeries including cataract surgery, laser vision correction (LASIK and PRK), and cosmetic lid and brow surgeries.',
-    link: 'services#anchorSurgery',
+    link: 'services#surgery',
     img: surgeryImg,
   },
   {
     title: 'Eyewear Center',
     copy: 'Our Optical Shop has a wide selection of both designer and budget frames, sunglasses, and contact lenses. Let our knowledgeable staff help you choose the perfect pair!',
-    link: 'services#anchorOptical',
+    link: 'services#eyewearCenter',
     img: opticalImg,
   },
 ];
