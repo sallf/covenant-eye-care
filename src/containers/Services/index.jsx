@@ -5,6 +5,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
 import PageTitle from '$components/PageTitle';
+import OpticalCross from '$components/OpticalCross';
 
 import { useMountEffect } from '$common/hooks';
 import {
@@ -13,6 +14,7 @@ import {
 } from '$common/contentful';
 
 const client = buildClient();
+const crossLogo = require('$images/optical-cross.svg');
 
 const options = {
   renderNode: {
@@ -96,6 +98,12 @@ const Services = () => {
                   </h2>
                   {
                     documentToReactComponents(content.fields.content, options)
+                  }
+                  {
+                    // Yeah hacks already!
+                    content.fields.id === 'eyewearCenter' && (
+                      <OpticalCross extended />
+                    )
                   }
                   <Link
                     className="cta"

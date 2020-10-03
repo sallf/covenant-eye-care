@@ -4,16 +4,27 @@
 a {
   color: $brand-primary;
 }
+
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: $brand-black;
 }
+
 img {
   max-width: 100%;
 }
+
 button {
   background: none;
 }
+
+li {
+  // Contentful fix
+  p {
+    margin-bottom: 0;
+  }
+}
+
 .section {
   margin-top: 30px;
 }
@@ -162,4 +173,12 @@ button {
     background: $white;
     color: $black !important;
   }
+}
+
+.icon-xl {
+  max-width: 400px;
+}
+
+.w-100 {
+  width: 100%;
 }

@@ -65,7 +65,7 @@ const PatientCenter = () => {
       </div>
     </>
   );
-}
+};
 
 PatientCenter.defaultProps = {
 
