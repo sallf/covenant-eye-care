@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './index.scss';
 
 import Hero from './Hero';
+import OpticalCross from '$components/OpticalCross';
 import Services from './Services';
 import Contact from './Contact';
 import Providers from './Providers';
@@ -37,6 +38,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <OpticalCross isLink />
       <Services />
       <Contact />
       <Providers />

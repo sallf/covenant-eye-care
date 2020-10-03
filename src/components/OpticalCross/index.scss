@@ -1,0 +1,16 @@
+@import '$scss/local';
+
+.wrapper {
+  padding: 10px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid $optical-cross-color;
+}
+
+.wrapperInner {
+  border: 1px solid $optical-cross-color;
+}
+
+.blueBox {
+  background: $optical-cross-color;
+}
