@@ -54,8 +54,8 @@ const OpticalCross = (props) => {
           {
             extended && (
               <>
-                <div className="col-12">
-                  <p className="text-lg text-center mt-3">Optical Cross is our new vision care savings program!</p>
+                <div className="col-12 text-center">
+                  <p className="section-heading text-center">Optical Cross is our new vision care savings program!</p>
                 </div>
                 <div className="col-md-6 mt-4">
                   <p><b>Enrollment Fees</b></p>
