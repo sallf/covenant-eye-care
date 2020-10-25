@@ -7,6 +7,7 @@ import {
 
 import Header from '$components/Header';
 import Footer from '$components/Footer';
+import ScrollToTop from '$components/ScrollToTop';
 
 import Home from './Home';
 import Services from './Services';
@@ -19,6 +20,7 @@ import Covid from './Covid';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div>
         <Header />
         <Switch>
