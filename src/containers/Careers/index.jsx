@@ -39,7 +39,7 @@ const Careers = () => {
       <div className="container">
         <div className="row">
           {
-            pageContent && (
+            pageContent ? (
               pageContent.map((content) => (
                 <div className="col-md-10 col-lg-8 mb-5" key={content.fields.title}>
                   <h2
@@ -60,6 +60,10 @@ const Careers = () => {
                   </a>
                 </div>
               ))
+            ) : (
+              <div className="col-12">
+                <p>No job postings available at this time.</p>
+              </div>
             )
           }
         </div>
