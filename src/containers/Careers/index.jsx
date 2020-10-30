@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import ReactMarkdown from 'react-markdown';
 
 

@@ -17,6 +17,7 @@ import { useMountEffect } from '$common/hooks';
 
 import {
   buildClient,
+  sortByOrder,
 } from '$common/contentful';
 
 const client = buildClient();
@@ -47,6 +48,7 @@ const Header = () => {
     top: 46,
   });
   const [fontSize, setFontSize] = useState(15);
+  const [careers, setCareers] = useState([]);
 
   // --------------------- ===
   //  REFS
@@ -138,6 +140,19 @@ const Header = () => {
     }
   });
 
+  // Get career info
+  useMountEffect(() => {
+    client
+      .getEntries({
+        content_type: 'careersPage',
+      })
+      .then((entry) => {
+        entry.items.sort(sortByOrder);
+        setCareers(entry.items);
+      })
+      .catch((err) => console.log(err));
+  });
+
   useLayoutEffect(() => {
     handleMouseOut();
   }, [handleMouseOut, location]);
@@ -159,11 +174,15 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="col-12 d-flex">
-              <div className={`${styles.alert} ${styles.width100}`}>
-                <Link to="/careers">
-                  We&#39;re hiring!
-                </Link>
-              </div>
+              {
+                careers.length > 0 && (
+                  <div className={`${styles.alert} ${styles.width100}`}>
+                    <Link to="/careers">
+                      We&#39;re hiring!
+                    </Link>
+                  </div>
+                )
+              }
               <div className={`text-right ${styles.width100}`}>
                 Font Size:
                 <button
