@@ -57,6 +57,8 @@ module.exports = (env, argv) => {
     '/patient-center',
     '/providers',
     '/contact',
+    '/careers',
+    'covid-notice/',
   ];
 
   const sitemapPlugin = new SitemapPlugin('https://app.musiquest.com', paths);
@@ -156,7 +158,8 @@ module.exports = (env, argv) => {
     },
     output: {
       path: outputPath,
-      filename: '[name].js',
+      filename: '[name].[chunkhash].bundle.js',
+      chunkFilename: '[name].[chunkhash].bundle.js',
       publicPath: '/',
     },
     plugins,

@@ -7,6 +7,7 @@ import {
 
 import Header from '$components/Header';
 import Footer from '$components/Footer';
+import ScrollToTop from '$components/ScrollToTop';
 
 import Home from './Home';
 import Services from './Services';
@@ -14,11 +15,13 @@ import PatientCenter from './PatientCenter';
 import ProvidersScreen from './ProvidersScreen';
 import Contact from './Contact';
 import Covid from './Covid';
+import Careers from './Careers';
 
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div>
         <Header />
         <Switch>
@@ -36,6 +39,9 @@ function App() {
           </Route>
           <Route path="/covid-notice">
             <Covid />
+          </Route>
+          <Route path="/careers">
+            <Careers />
           </Route>
           <Route path="/" strict>
             <Home />

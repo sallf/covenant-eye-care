@@ -56,21 +56,21 @@ const Footer = (props) => {
                 <ul className="footer-links" aria-labelledby="footerServices">
                   <li>
                     <Link
-                      to="/services#anchorEyeExams"
+                      to="/services#eyeExams"
                     >
                       Eye Exams
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/services#anchorSurgery"
+                      to="/services#surgery"
                     >
                       Surgery
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/services#anchorOpticalShop"
+                      to="/services#opticalShop"
                     >
                       Optical Shop
                     </Link>
@@ -113,6 +113,13 @@ const Footer = (props) => {
                       to="/contact"
                     >
                       Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/careers"
+                    >
+                      Careers
                     </Link>
                   </li>
                 </ul>
