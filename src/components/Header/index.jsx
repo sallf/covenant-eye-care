@@ -5,7 +5,7 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 
@@ -158,8 +158,13 @@ const Header = () => {
       <div className={styles.wrapper}>
         <div className="container">
           <div className="row">
-            <div className="col-12 text-center">
-              <div className="text-right">
+            <div className="col-12 d-flex">
+              <div className={`${styles.alert} ${styles.width100}`}>
+                <Link to="/careers">
+                  We&#39;re hiring!
+                </Link>
+              </div>
+              <div className={`text-right ${styles.width100}`}>
                 Font Size:
                 <button
                   className={`${styles.fontButton} ${styles.fontButton__dec} ${fontSize < 15 ? styles.fontButton__current : ''}`}
@@ -188,7 +193,7 @@ const Header = () => {
           <nav
             className={styles.navbar}
           >
-            <NavLink
+            <Link
               to="/"
             >
               <img
@@ -198,7 +203,7 @@ const Header = () => {
                 title=""
               />
               <span className="sr-only">Go home</span>
-            </NavLink>
+            </Link>
             <button
               className={`${styles.hamburger} ${navActive ? styles.hamburger__active : ''}`}
               aria-controls="mainNav"
