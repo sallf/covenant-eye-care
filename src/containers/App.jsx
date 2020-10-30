@@ -15,6 +15,7 @@ import PatientCenter from './PatientCenter';
 import ProvidersScreen from './ProvidersScreen';
 import Contact from './Contact';
 import Covid from './Covid';
+import Careers from './Careers';
 
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path="/covid-notice">
             <Covid />
+          </Route>
+          <Route path="/careers">
+            <Careers />
           </Route>
           <Route path="/" strict>
             <Home />

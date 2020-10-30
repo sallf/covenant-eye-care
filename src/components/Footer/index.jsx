@@ -115,6 +115,13 @@ const Footer = (props) => {
                       Contact
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/careers"
+                    >
+                      Careers
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
